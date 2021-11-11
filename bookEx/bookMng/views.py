@@ -145,15 +145,16 @@ def searchbooks(request):
 
 @login_required(login_url=reverse_lazy('login'))
 def wishlist(request):
-    books = Book.objects.filter()
-    for b in books:
-        b.pic_path = b.picture.url[14:]
+    wish = Wishlist.objects.all()
+    book = Book.objects.all()
 
     return render(request,
                   'bookMng/wishlist.html',
                   {
                       'item_list': MainMenu.objects.all(),
-                      'books': books
+                      'wish': wish,
+                      'book': book,
+
                   }
                   )
 
