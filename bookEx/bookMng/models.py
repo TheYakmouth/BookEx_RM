@@ -24,3 +24,10 @@ class Book(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+class Wishlist(models.Model):
+    username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+    bookID = models.ForeignKey(Book, blank=True, null=True, on_delete=models.CASCADE)
+
+    def str(self):
+        return str(self.id)
