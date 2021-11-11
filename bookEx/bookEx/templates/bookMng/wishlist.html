@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+    {% for item in item_list %}
+        <li>
+            <a href="{{ item.link}}">
+                <button type="button" class="btn btn-secondary btn-outline-light">{{ item.item }} </button>
+            </a>
+
+        </li>
+    {% endfor %}
+{% endblock sidenav %}
+
+
+{% block content %}
+    <h1 align="center"> My Wishlist </h1>
+    <table align="center" border="2" width="600">
+    {% for book in books %}
+        <tr>
+            <td>
+                <a href="book_detail/{{ book.id }}"> {{ book.name }} </a>
+            </td>
+            <td>
+                <img src="{% static book.pic_path %}" height="75">
+            </td>
+            <td>
+                {{ book.username }}
+            </td>
+             <td align="center">
+                <a href="wishlist_remove/{{ book.id }}"> Delete </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}

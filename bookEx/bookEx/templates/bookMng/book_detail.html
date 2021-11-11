@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+    {% for item in item_list %}
+        <li>
+            <a href="{{ item.link}}">
+                <button type="button" class="btn btn-secondary btn-outline-light">{{ item.item }} </button>
+            </a>
+
+        </li>
+    {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+    <h1 align="center"> Description </h1>
+    <table align="center" border="2" width="600">
+        <tr>
+            <td>
+                {{ book.name }}
+            </td>
+            <td>
+                <img src="{% static book.pic_path %}" height="75">
+            </td>
+            <td>
+                {{ book.username }}
+            </td>
+             <td>
+                {{ book.web }}
+            </td>
+             <td>
+                {{ book.price }}
+            </td>
+             <td>
+                {{ book.publishdate }}
+            </td>
+        </tr>
+    </table>
+{% endblock content%}
